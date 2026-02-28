@@ -31,9 +31,12 @@ Install the library in your Arduino IDE through the Libraries Manager. Once inst
 | <img src="res/.png" width="30%"/> | Down        | 16 |
 
 ## Custom Expressions
-An expression consists of two elements. The first is the color pallette, which identifies the colors that are displayed for the final matrix display. This includes LEDs that are turned off by denoting them as black in the pallette. The second element is an 8x16 2D array of ints, idenfitifying where each color goes in the physical LED matrix. This allows designers to visually verify the designed expression matches what is sent to the controller.
+A custom expression can be generated in one of two ways. The first is to send an 8x16 2D array of CRGB color values. This method is shown in the ```customExpression``` example.
 
-Within the library is an example of sending a custom expression, labeled as customEmote.
+The second is to send a custom emote.
+An emote consists of two elements. The first is the color pallette, which identifies the colors that are displayed for the final matrix display. This includes LEDs that are turned off by denoting them as black in the pallette. The second element is an 8x16 2D array of ints, idenfitifying where each color goes in the physical LED matrix. This method is shown in the ```customEmote``` example.
+
+Both methods are structued to allow designers to visually verify the designed expression matches what is sent to the controller.
 
 ## Additional Functionality
 Beyond the expressions themselves, 
