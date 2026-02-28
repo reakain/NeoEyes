@@ -15,6 +15,7 @@ StandardEmote KEYWORD1
 #######################################
 begin	KEYWORD2
 setExpression KEYWORD2
+setStandardEmote KEYWORD2
 setNeutral KEYWORD2
 setRight KEYWORD2
 setLeft KEYWORD2
@@ -28,8 +29,8 @@ setClosed KEYWORD2
 setSleepy KEYWORD2
 setDead KEYWORD2
 setOff KEYWORD2
-blink KEYWORD2
 setBrightness KEYWORD2
+setColorPalette KEYWORD2
 
 ######################################
 # Constants (LITERAL1)

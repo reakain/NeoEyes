@@ -31,6 +31,21 @@ Install the library in your Arduino IDE through the Libraries Manager. Once inst
 | <img src="res/.png" width="30%"/> | Down        | 16 |
 
 ## Custom Expressions
-An expression consists of two elements. The first is the color pallette, which identifies the colors that are displayed for the final matrix display. This includes LEDs that are turned off by denoting them as black in the pallette. The second element is a 2D array of ints, idenfitifying where each color goes in the physical LED matrix. This allows designers to visually verify the designed expression matches what is sent to the controller.
+An expression consists of two elements. The first is the color pallette, which identifies the colors that are displayed for the final matrix display. This includes LEDs that are turned off by denoting them as black in the pallette. The second element is an 8x16 2D array of ints, idenfitifying where each color goes in the physical LED matrix. This allows designers to visually verify the designed expression matches what is sent to the controller.
 
 Within the library is an example of sending a custom expression, labeled as customEmote.
+
+## Additional Functionality
+Beyond the expressions themselves, 
+
+### Adjust the LED Brightness
+You can adjust the overall brightness of the LEDs using the ```setBrightness()``` function. 
+The usage example is ```setBrightness.ino```.
+
+### Change the Color Palette
+You can change the default color palette used by the standard emotes. You can either access it directly to change it, or use the ```setColorPalette``` class function. If you access the palette directly, you'll need to re-send the expression afterwards to make it refresh the color.
+
+An example of using this functionality is in ```changeColorPalette.ino```.
+
+### Color Objects
+The named colors are referencing a predefined list from FastLED, available [here](https://fastled.io/docs/struct_c_r_g_b.html#aeb40a08b7cb90c1e21bd408261558b99). You can also make your own colors by declaring CRGB objects with hex values, such as ```CRGB(0xF0F8FF)``` which would be the same value as ```CRGB::AliceBlue```

@@ -12,14 +12,20 @@ bool isTwoPanels = true;
 // Our initializer, which assumes we're using NeoPixels.
 NeoEyes<DATA_PIN> eyesss = NeoEyes<DATA_PIN>(isSerpentine,followColumnFirst,isTwoPanels);
 
-
 void setup() {
     eyesss.begin();
+    eyesss.setBrightness(50); // Set the brightness to something less than max (255) to avoid blinding yourself
+    eyesss.setStandardEmote(Neutral);
 }
 
+
 void loop() {
-    eyesss.setNeutral();
-    delay(500);
-    eyesss.setHappy();
-    delay(500);
+    // You can define and use custom colors instead of the pre-named ones
+    CRGB newblack = CRGB(0x000000);
+    CRGB palette[4] = {CRGB(0x000000), CRGB::Red, CRGB::Orange, CRGB::Blue};
+    eyesss.setColorPalette(palette);
+    delay(1000);
+    CRGB palette2[4] = {newblack, CRGB::Orange, newblack, CRGB::Blue};
+    eyesss.setColorPalette(palette2);
+    delay(1000);
 }

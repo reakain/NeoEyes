@@ -15,11 +15,13 @@ NeoEyes<DATA_PIN> eyesss = NeoEyes<DATA_PIN>(isSerpentine,followColumnFirst,isTw
 
 void setup() {
     eyesss.begin();
+    eyesss.setBrightness(50); // Set the brightness to something less than max (255) to avoid blinding yourself
+    eyesss.setStandardEmote(Happy);
 }
 
 void loop() {
-    eyesss.setNeutral();
+    eyesss.setBrightness(50); // Set the brightness to something less than max (255) to avoid blinding yourself
     delay(500);
-    eyesss.setHappy();
+    eyesss.setBrightness(150); // Set the brightness to something less than max (255) to avoid blinding yourself
     delay(500);
 }

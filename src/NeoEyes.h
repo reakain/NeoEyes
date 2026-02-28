@@ -59,8 +59,8 @@ class cNeoEyes
     void setSleepy();
     void setDead();
     void setOff();
-    void blink(int closeTime = 50);
     void setBrightness(uint8_t scale);
+    void setColorPalette(CRGB newPalette[4]);
     uint16_t XY( uint8_t x, uint8_t y);
     CRGB defaultColors[4] = {CRGB::Black, CRGB::Blue, CRGB::MediumSpringGreen, CRGB::Red};
     

@@ -374,28 +374,18 @@ void cNeoEyes::setOff() {
   setExpression(currentEmote);
 }
 
-void cNeoEyes::blink(int closeTime = 50) {
-  //CRGB defaultColors[4] = {CRGB::Black, CRGB::Blue, CRGB::MediumSpringGreen, CRGB::Red};
-  Emote closedEmote = { defaultColors,
-    {     // Right Eye                   Left Eye
-      { 0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0 }, // Row 1
-      { 0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0 }, // Row 2
-      { 0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0 }, // Row 3
-      { 0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0 }, // Row 4
-      { 0, 1, 0, 0, 0, 0, 1, 0,   0, 1, 0, 0, 0, 0, 1, 0 }, // Row 5
-      { 0, 0, 1, 0, 0, 1, 0, 0,   0, 0, 1, 0, 0, 1, 0, 0 }, // Row 6
-      { 0, 0, 0, 1, 1, 0, 0, 0,   0, 0, 0, 1, 1, 0, 0, 0 }, // Row 7
-      { 0, 0, 0, 0, 0, 0, 0, 0,   0, 0, 0, 0, 0, 0, 0, 0 }, // Row 8
-    } };
-  setExpression(closedEmote);
-  FastLED.show(_brightness);
-  delay(closeTime);
-  setExpression(currentEmote);
+void cNeoEyes::setBrightness(uint8_t scale) {
+  _brightness = scale;
   FastLED.show(_brightness);
 }
 
-void cNeoEyes::setBrightness(uint8_t scale) {
-  _brightness = scale;
+void cNeoEyes::setColorPalette(CRGB newPalette[4]) {
+  defaultColors[0] = newPalette[0];
+  defaultColors[1] = newPalette[1];
+  defaultColors[2] = newPalette[2];
+  defaultColors[3] = newPalette[3];
+  currentEmote.colorList = defaultColors;
+  setExpression(currentEmote);
   FastLED.show(_brightness);
 }
 
